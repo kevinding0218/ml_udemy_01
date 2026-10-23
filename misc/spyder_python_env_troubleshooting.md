@@ -120,10 +120,30 @@ Replace the example name or path with the one that matches Spyder's
 `sys.executable`. Do not copy the example path literally.
 
 If you installed Spyder itself into a conda-forge environment, use the
-same conda installation that owns that environment. If `conda` is not
-recognized in Terminal, use the Terminal setup instructions for the
-specific conda installation you installed; don't assume Anaconda is
-installed.
+same conda installation that owns that environment.
+
+**If `conda` is not in your PATH**, call it directly using its full path.
+For miniforge (the most common setup on modern Macs), that is:
+
+``` bash
+~/miniforge3/bin/conda install -n spyder-env numpy pandas matplotlib scikit-learn
+```
+
+To avoid doing this every time, initialize conda for your shell once:
+
+``` bash
+~/miniforge3/bin/conda init zsh
+```
+
+Then restart Terminal. After that, `conda` will be available in every new session.
+
+**Tip — use `mamba` for faster installs:** If you have miniforge, `mamba` is
+included and is a drop-in replacement for `conda` that resolves dependencies
+much faster. Just swap the command:
+
+``` bash
+mamba install -n spyder-env numpy pandas matplotlib scikit-learn
+```
 
 ### Step C --- If Spyder 6 is the standalone app
 
@@ -147,14 +167,22 @@ imports in the active console.
     version guidance shown by Spyder and install the compatible version
     into the target environment.
 
-For a typical conda environment, its Python executable is usually
-located at:
+For a typical conda environment, its Python executable is always at:
 
--   Apple Silicon Mac: often `.../envs/<environment-name>/bin/python`
--   Intel Mac: often `.../envs/<environment-name>/bin/python`
+```
+<conda-base>/envs/<environment-name>/bin/python
+```
 
-The exact base path depends on where and how conda was installed. Use
-the path reported by `sys.executable` or the environment details rather
+The format is the same on Apple Silicon and Intel Macs. What differs is
+where the conda base directory lives, which depends on how conda was installed:
+
+| Installation | Typical base path |
+|---|---|
+| miniforge | `~/miniforge3/` |
+| Anaconda | `~/anaconda3/` or `/opt/anaconda3/` |
+| Miniconda | `~/miniconda3/` |
+
+Use the path reported by `sys.executable` or `conda info --envs` rather
 than guessing.
 
 ### Step D --- Verify the packages

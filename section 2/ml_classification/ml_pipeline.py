@@ -34,50 +34,8 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 
 # fit_transform: learn the average and range from X_train, then rescale every value in X_train.
-# X_train is REPLACED (overwritten) because the raw version is no longer useful after scaling.
-#
-# WHY do we need to scale at all?
-# -----------------------------------------------
-# KNN finds "nearest neighbors" by computing DISTANCE between two data points.
-# For N columns: distance = sqrt((a1-b1)² + (a2-b2)² + ... + (aN-bN)²)
-#   → each column's gap is squared, then all squared gaps are ADDED together
-#   → e.g. total of 4,000,900 = age-gap² + salary-gap² = 900 + 4,000,000
-#   → a column with huge raw numbers produces a huge squared gap and drowns out the rest
-#
-# REAL-WORLD EXAMPLE (2 columns: age and salary):
-#   Person A: age=30, salary=50000
-#   Person B: age=32, salary=90000
-#   (a 2-year age gap and a $40k salary gap — both are real, meaningful differences)
-#
-#   RAW distance = sqrt( (32-30)²  +  (90000-50000)²  )
-#                = sqrt(    4      +  1,600,000,000    )
-#                ≈ 40,000
-#
-#   Age's share:    4 / 1,600,000,004 ≈ 0.000%  ← completely invisible
-#   Salary's share: 1,600,000,000 / 1,600,000,004 ≈ 100%  ← salary is everything
-#
-#   The 0% for age is NOT because age is unimportant — it's because salary
-#   is measured in units of thousands while age is in tens. The unit size,
-#   not real importance, is controlling the result.
-#
-# IS THERE A TARGET SPLIT (50/50, or "at least 10% each")?
-#   No fixed target. The goal is not equal shares — it's that each column's
-#   share reflects genuine data differences, not fake distortion from unit sizes.
-#   After scaling: if age still takes 80% for a specific pair of people, that
-#   just means those two people genuinely differ a lot on age — which is fine.
-#   The problem is 99.98% caused purely by salary being in bigger units.
-#
-# AFTER SCALING — each column is converted to the same unit (roughly -3 to +3):
-#   A 2-year age gap across a dataset where ages span 20–60 → small scaled gap (~0.2)
-#   A $40k salary gap across a dataset where salaries span $15k–$150k → larger scaled gap (~1.1)
-#   Both now live on the same ruler. Salary still contributes more for this pair
-#   (because $40k IS a bigger real gap than 2 years), but age is no longer invisible.
-#   The split now reflects real differences — not just which column has bigger numbers.
-#
-# WHAT DOES THE DISTANCE NUMBER MEAN?
-#   The absolute value (40,000 or 1.4) has no meaning on its own.
-#   KNN never asks "is 40,000 too far?" — it just RANKS all data points by
-#   distance and picks the 5 smallest. It's always a relative comparison, never a threshold.
+# X_train is overwritten because the raw version is no longer useful after scaling.
+# See ml_pipeline_notes.md for why scaling is needed and a worked example.
 X_train = sc.fit_transform(X_train)
 
 # transform: scale the TEST data using the SAME averages learned from training (do NOT re-learn)
@@ -154,3 +112,23 @@ scaler_file = "sc.pickle"
 
 # Save the scaler to a file — you need this later to scale new inputs the same way
 pickle.dump(sc, open(scaler_file, 'wb'))
+
+
+# --- OPTION: combine scaler + classifier into a single pipeline and save as one file ---
+# This is the preferred approach in production — scaling is baked in, so it can't be
+# accidentally skipped or applied incorrectly when predicting later.
+#
+# from sklearn.pipeline import Pipeline
+#
+# pipe = Pipeline([
+#     ('scaler',     StandardScaler()),
+#     ('classifier', KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2))
+# ])
+#
+# pipe.fit(X_train, y_train)         # fits scaler then trains classifier in one call
+# y_pred = pipe.predict(X_test)      # scales then predicts automatically
+#
+# pickle.dump(pipe, open("model.pickle", "wb"))  # one file — no separate scaler needed
+#
+# NOTE: if you switch to the pipeline approach, use X_train and X_test WITHOUT
+# the manual sc.fit_transform / sc.transform steps above — the pipeline handles scaling.
