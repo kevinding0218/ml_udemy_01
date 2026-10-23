@@ -1,3 +1,6 @@
+# import sys
+# print(sys.executable)
+
 # numpy: a library for working with numbers and arrays (lists of data)
 import numpy as np
 # pandas: a library for loading and working with tables of data (like Excel)
