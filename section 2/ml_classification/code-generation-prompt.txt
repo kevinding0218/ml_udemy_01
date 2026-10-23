@@ -1,0 +1,27 @@
+Read the dataset from the following GitHub CSV file:
+
+https://github.com/futurexskill/ml-model-deployment/blob/main/storepurchasedata.csv
+
+Analyze the dataset and build a complete Machine Learning classification model using the K-Nearest Neighbors (KNN) algorithm in Python.
+
+Generate clean, beginner-friendly code with detailed comments and divide the solution into the following sections:
+
+1. Import the required libraries.
+2. Load the dataset from the GitHub CSV file.
+3. Display the first few rows and dataset information.
+4. Separate the independent variables (X) and dependent variable (y).
+5. Split the dataset into training and testing sets.
+6. Perform feature scaling using StandardScaler.
+7. Train a K-Nearest Neighbors (KNN) classifier.
+8. Evaluate the model using a confusion matrix, classification report, and accuracy score.
+9. Predict the class for a new customer.
+10. Save the trained KNN model as "knn_model.pkl" using pickle.
+11. Save the fitted StandardScaler as "scaler.pkl" using pickle.
+12. Demonstrate how to load both the saved model and scaler and make predictions on new data.
+
+For every code block, explain:
+- What the code does
+- Why this step is necessary
+- Any important machine learning concepts involved
+
+Write the code using Python, pandas, scikit-learn, and pickle. Follow Python best practices and make the code suitable for beginners learning machine learning and model deployment.
