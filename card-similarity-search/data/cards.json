@@ -1,0 +1,98 @@
+[
+  {
+    "cardId": "card-001",
+    "description": "A fierce dragon that breathes scorching flames, capable of melting steel and incinerating forests.",
+    "aspects": ["fire", "dragon", "attack", "legendary"],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Komodo_dragon_with_tongue.jpg/320px-Komodo_dragon_with_tongue.jpg",
+    "releaseId": "set-alpha",
+    "releaseDate": "2023-01-15"
+  },
+  {
+    "cardId": "card-002",
+    "description": "A wise forest elf who channels nature magic to heal allies and grow enchanted vines.",
+    "aspects": ["nature", "heal", "elf", "support"],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/320px-PNG_transparency_demonstration_1.png",
+    "releaseId": "set-alpha",
+    "releaseDate": "2023-01-15"
+  },
+  {
+    "cardId": "card-003",
+    "description": "An ancient ice golem summoned from glaciers, with an impenetrable frozen armor and freezing touch.",
+    "aspects": ["ice", "defense", "golem", "rare"],
+    "imageUrl": "",
+    "releaseId": "set-alpha",
+    "releaseDate": "2023-01-15"
+  },
+  {
+    "cardId": "card-004",
+    "description": "A stealthy shadow assassin who moves unseen through darkness, striking vital points with poisoned daggers.",
+    "aspects": ["shadow", "poison", "attack", "rogue"],
+    "imageUrl": "",
+    "releaseId": "set-beta",
+    "releaseDate": "2023-06-20"
+  },
+  {
+    "cardId": "card-005",
+    "description": "A mighty storm giant wielding a thunderbolt hammer, capable of summoning lightning storms.",
+    "aspects": ["lightning", "thunder", "giant", "attack"],
+    "imageUrl": "",
+    "releaseId": "set-beta",
+    "releaseDate": "2023-06-20"
+  },
+  {
+    "cardId": "card-006",
+    "description": "A gentle water sprite who purifies cursed lands and restores life to withered plants.",
+    "aspects": ["water", "heal", "nature", "support"],
+    "imageUrl": "",
+    "releaseId": "set-beta",
+    "releaseDate": "2023-06-20"
+  },
+  {
+    "cardId": "card-007",
+    "description": "A cursed necromancer who raises fallen warriors as undead soldiers to fight once more.",
+    "aspects": ["undead", "dark", "summon", "necromancy"],
+    "imageUrl": "",
+    "releaseId": "set-beta",
+    "releaseDate": "2023-06-20"
+  },
+  {
+    "cardId": "card-008",
+    "description": "A golden phoenix reborn from ashes, radiating blinding light and scorching heat.",
+    "aspects": ["fire", "light", "legendary", "rebirth"],
+    "imageUrl": "",
+    "releaseId": "set-gamma",
+    "releaseDate": "2024-03-10"
+  },
+  {
+    "cardId": "card-009",
+    "description": "A stone fortress wall that shields allies from incoming attacks and deflects projectiles.",
+    "aspects": ["defense", "shield", "stone", "support"],
+    "imageUrl": "",
+    "releaseId": "set-gamma",
+    "releaseDate": "2024-03-10"
+  },
+  {
+    "cardId": "card-010",
+    "description": "A sea serpent lurking in ocean depths, capsizing ships with massive waves and crushing coils.",
+    "aspects": ["water", "attack", "serpent", "rare"],
+    "imageUrl": "",
+    "releaseId": "set-gamma",
+    "releaseDate": "2024-03-10"
+  },
+  {
+    "cardId": "card-011",
+    "description": "A wind archer mounted on a griffin, firing enchanted arrows that never miss their mark.",
+    "aspects": ["wind", "attack", "archer", "griffin"],
+    "imageUrl": "",
+    "releaseId": "set-gamma",
+    "releaseDate": "2024-03-10"
+  },
+  {
+    "cardId": "card-012",
+    "description": "A plague doctor who spreads toxic miasma, weakening enemy troops and corroding their equipment.",
+    "aspects": ["poison", "dark", "attack", "debuff"],
+    "imageUrl": "",
+    "releaseId": "set-delta",
+    "releaseDate": "2024-11-01"
+  }
+]

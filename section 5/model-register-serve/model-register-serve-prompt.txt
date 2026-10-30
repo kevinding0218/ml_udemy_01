@@ -1,0 +1,24 @@
+I'm using the latest version of MLflow in 2026. Below is my existing Python code for a machine learning project that predicts customer purchases based on Age and Estimated Salary. Modify this code to train multiple classification models, including Logistic Regression, K-Nearest Neighbors, Decision Tree, and Random Forest. Use the latest MLflow APIs to track every experiment, compare the results based on accuracy, identify the best-performing model, and print its name and accuracy. Preserve the existing data preprocessing steps wherever possible and return the complete updated code.
+
+
+
+how do I serve this best model
+
+mlflow models serve \
+    --model-uri "models:/CustomerPurchasePredictionModel/1" \
+    --port 8000 \
+    --env-manager local
+
+
+    
+curl -X POST http://127.0.0.1:8000/invocations \
+-H "Content-Type: application/json" \
+-d '{
+    "inputs": [
+        [30, 87000],
+        [50, 120000],
+        [22, 20000]
+    ]
+}'
+
+
