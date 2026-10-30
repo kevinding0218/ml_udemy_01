@@ -1,5 +1,6 @@
-# import sys
-# print(sys.executable)
+import sys
+print(sys.executable)
+print(sys.version)
 
 # numpy: a library for working with numbers and arrays (lists of data)
 import numpy as np
