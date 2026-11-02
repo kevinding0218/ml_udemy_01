@@ -13,9 +13,9 @@ import pickle
 
 !ls
 
-classifier_colab = pickle.load(open('classifier.pickle','rb'))
+classifier_colab = pickle.load(open('classifier.pickle', 'rb'))
 
-scaler_colab = pickle.load(open('sc.pickle','rb'))
+scaler_colab = pickle.load(open('sc.pickle', 'rb'))
 
 !pip install flask-ngrok
 
