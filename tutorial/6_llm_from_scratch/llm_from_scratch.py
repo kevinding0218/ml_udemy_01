@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1QrNV9wrD8_oz6PzCqefPAhTPkQokqevs
 """
 
-!pip install transformers datasets torch
+# !pip install transformers datasets torch
 
 import torch
 import torch.nn as nn
@@ -17,7 +17,7 @@ from transformers import AutoTokenizer
 from datasets import load_dataset
 
 # Step 1: Load the dataset
-dataset = load_dataset("wikitext", "wikitext-2-raw-v1", split="train[:1%]")  # use only 1% for simplicity
+dataset = load_dataset("Salesforce/wikitext", "wikitext-2-raw-v1", split="train[:1%]")  # use only 1% for simplicity
 
 # Step 2: Initialize Tokenizer
 tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
@@ -55,7 +55,7 @@ class SimpleTransformer(nn.Module):
         self.embedding = nn.Embedding(vocab_size, embed_size)
         self.position_encoding = nn.Parameter(torch.randn(max_seq_len, embed_size))  # Max sequence length
         self.transformer = nn.TransformerEncoder(
-            nn.TransformerEncoderLayer(embed_size, num_heads), num_layers
+            nn.TransformerEncoderLayer(embed_size, num_heads, batch_first=True), num_layers
         )
         self.fc = nn.Linear(embed_size, vocab_size)
 

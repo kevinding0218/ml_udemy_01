@@ -1,0 +1,71 @@
+Build a complete Python project called "Multi-Tool AI Agent" using the latest OpenAI Python SDK.
+
+Requirements:
+
+1. Use Python 3.11.
+2. Use the OpenAI Responses API.
+3. Read the OpenAI API key from the environment variable OPENAI_API_KEY.
+4. Create a clean project structure with:
+   - app.py
+   - requirements.txt
+   - README.md
+
+The AI Agent should support multiple tools:
+
+1. Weather Tool
+   - Use the free Open-Meteo API (no API key required).
+   - Accept city names such as New York, London and Tokyo.
+   - Return current temperature and wind speed.
+
+2. Stock Tool
+   - Use the yfinance package.
+   - Return the latest stock price for symbols such as NVDA, AAPL and MSFT.
+
+3. Calculator Tool
+   - Accept mathematical expressions.
+   - Evaluate them safely using Python (avoid unsafe eval if possible).
+
+4. Web Search
+   - Use the OpenAI Responses API built-in web_search_preview tool for questions that require current internet information.
+
+The agent should automatically choose which tool to invoke based on the user's request using OpenAI function calling.
+
+Example queries:
+
+- What is the weather in New York?
+- What is the weather in London?
+- What is the latest price of NVDA?
+- What is the latest price of Apple stock?
+- Calculate 12345 * 678
+- Who founded OpenAI?
+- What are today's top AI news stories?
+
+Architecture:
+
+User
+    ↓
+OpenAI Agent
+    ↓
+Tool Selection
+    ├── Weather Tool
+    ├── Yahoo Finance Tool
+    ├── Calculator Tool
+    └── OpenAI Web Search
+    ↓
+Generate Final Natural Language Response
+
+The project should include:
+
+- Well-structured functions
+- Comments explaining every section
+- Error handling
+- Interactive terminal chat loop
+- Exit when the user types "exit"
+
+Also generate:
+- requirements.txt
+- README.md with setup instructions
+- Example screenshots/output in markdown
+- Clear explanation of how tool calling works
+
+Keep the code beginner friendly and under 300 lines while following good Python coding practices.
