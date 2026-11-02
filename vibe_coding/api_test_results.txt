@@ -1,0 +1,12 @@
+Request: age=18, salary=20000
+Response: {"prediction":0,"purchase_probability":0.00018014448472185123,"will_purchase":false}
+
+Request: age=35, salary=50000
+Response: {"prediction":1,"purchase_probability":0.6735266456705142,"will_purchase":true}
+
+Request: age=60, salary=80000
+Response: {"prediction":1,"purchase_probability":0.9999901156650225,"will_purchase":true}
+
+Request: age=25, salary=40000
+Response: {"prediction":0,"purchase_probability":0.039964066231344214,"will_purchase":false}
+

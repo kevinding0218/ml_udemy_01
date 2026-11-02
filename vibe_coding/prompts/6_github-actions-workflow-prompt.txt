@@ -1,0 +1,13 @@
+I want to create a GitHub Actions workflow to automate the retraining, testing, and deployment of my machine learning model. 
+
+Requirements:
+1. Trigger the workflow whenever Python code or data files change in the repository.
+2. Set up Python 3.11 and install dependencies from requirements.txt.
+3. Train the ML model 
+4. Run validation tests  and stop deployment if tests fail.
+5. Deploy the trained model to AWS Lambda by uploading it to S3 and updating the Lambda function if required.
+8. Ensure the workflow is readable and suitable for beginners learning CI/CD for ML.
+
+Generate a ready-to-use file with these specifications.
+
+

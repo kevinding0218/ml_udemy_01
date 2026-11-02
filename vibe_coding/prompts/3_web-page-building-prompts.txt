@@ -1,0 +1,1 @@
+can you create a simple web page which will have a simple form to take age and salary as input and show prediction talking to my local API

@@ -29,6 +29,20 @@ from search import search_by_text, search_by_image
 app = Flask(__name__)
 
 
+@app.after_request
+def add_cors(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return response
+
+
+@app.route("/search/text", methods=["OPTIONS"])
+@app.route("/search/image", methods=["OPTIONS"])
+def handle_preflight():
+    return "", 204
+
+
 @app.route("/health", methods=["GET"])
 def health():
     """Simple liveness check.
